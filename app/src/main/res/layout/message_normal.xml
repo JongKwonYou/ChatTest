@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- message of me -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/messageOfMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="오전 8:32"
+            android:textSize="11dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/tvMessageOfMe"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessageOfMe"
+            />
+
+        <TextView
+            android:id="@+id/tvMessageOfMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="메세지"
+            android:textSize="15dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_message_of_me"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- message of you -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/messageOfYou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="오전 8:32"
+            android:textSize="11dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tvMessageOfYou"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessageOfYou"
+            />
+
+        <TextView
+            android:id="@+id/tvMessageOfYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="메세지"
+            android:textSize="15dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_message_of_you"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
