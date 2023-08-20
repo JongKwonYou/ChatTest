@@ -12,7 +12,10 @@ object ChatConstants {
     val USER_ID = "11111"
     val USER_NAME = "유종권"
 
-
     var isInitializeChat : MutableLiveData<Boolean> = MutableLiveData(false)
     var isConnectedChat : MutableLiveData<Boolean> = MutableLiveData(false)
+
+    val TYPE_NORMAL_MESSAGE : Int = 0
+    val TYPE_FILE_MESSAGE = 1
+    val TYPE_BUY_OTC_MESSAGE = 2
 }

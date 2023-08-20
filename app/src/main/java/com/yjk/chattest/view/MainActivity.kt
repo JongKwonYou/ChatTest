@@ -45,42 +45,15 @@ class MainActivity : AppCompatActivity() {
 
     // 채팅 연결
     private fun connectChat(){
-        loading(true)
-        SendbirdChat.connect(userType.id) { user, e ->
-            loading(false)
-            if (user != null) {
-                if (e != null) {
-                    AlertDialog.Builder(this)
-                        .setTitle("Chatting")
-                        .setMessage("채팅 연결에 실패했습니다.\n다시 시도하시겠습니까?")
-                        .setPositiveButton("예") { dialog, _ ->
-                            connectChat()
-                            dialog.dismiss()
-                        }
-                        .setNegativeButton("아니오") { dialog, _ ->
-                            connectChat()
-                            dialog.dismiss()
-                        }
-                        .create()
-                        .show()
-                } else {
-                    // Proceed in online mode.
-                    var i = Intent()
-                    if(userType.type == PHARMACY_TYPE) {
-                        i = Intent(this@MainActivity, ActivityPharmacy::class.java)
-                    }else {
-                        startActivity(Intent(this@MainActivity, ActivityUser::class.java))
-                    }
-                    i.putExtra(key_user_type, userType)
-                    i.putExtra(key_user, user.serialize())
-                    startActivity(i)
-                    finish()
-                }
-            } else {
-                // Handle error.
-                Log.e("######","[Chatting Error] 유저 없음..")
-            }
+        var i = Intent()
+        if(userType.type == PHARMACY_TYPE) {
+            i = Intent(this@MainActivity, ActivityPharmacy::class.java)
+        }else {
+            i = Intent(this@MainActivity, ActivityUser::class.java)
         }
+        i.putExtra(key_user_type, userType)
+        startActivity(i)
+        finish()
     }
 
     private fun loading(isLoading : Boolean){

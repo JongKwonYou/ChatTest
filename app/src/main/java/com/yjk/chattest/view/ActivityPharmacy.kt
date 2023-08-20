@@ -7,6 +7,8 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.sendbird.android.SendbirdChat
 import com.yjk.chattest.data.ChatConstants
+import com.yjk.chattest.data.PHARMACY_TYPE
+import com.yjk.chattest.data.USER_TYPE
 import com.yjk.chattest.data.UserType
 import com.yjk.chattest.databinding.ActivityMainBinding
 
@@ -30,12 +32,12 @@ class ActivityPharmacy : AppCompatActivity() {
             .setTitle("User Type")
             .setMessage("약국으로 로그인하시겠습니까?")
             .setPositiveButton("예") { dialog, _ ->
-                user = UserType(ChatConstants.PHARMACY_TYPE, ChatConstants.PHARMACY_ID, ChatConstants.PHARMACY_NAME)
+                user = UserType(PHARMACY_TYPE, ChatConstants.PHARMACY_ID, ChatConstants.PHARMACY_NAME)
                 connectChat()
                 dialog.dismiss()
             }
             .setNegativeButton("아니오") { dialog, _ ->
-                user = UserType(ChatConstants.USER_TYPE, ChatConstants.USER_ID, ChatConstants.USER_NAME)
+                user = UserType(USER_TYPE, ChatConstants.USER_ID, ChatConstants.USER_NAME)
                 connectChat()
                 dialog.dismiss()
             }
