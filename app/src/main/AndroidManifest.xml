@@ -26,10 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.ActivityUser"
+        <activity android:name=".view.user.ActivityUser"
             android:resizeableActivity="true"
             />
-        <activity android:name=".view.ActivityPharmacy"/>
+        <activity android:name=".view.pharmacy.ActivityPharmacy"/>
     </application>
 
 </manifest>

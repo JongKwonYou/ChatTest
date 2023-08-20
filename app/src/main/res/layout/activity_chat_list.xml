@@ -18,6 +18,7 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
@@ -32,8 +33,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             app:layout_constraintStart_toEndOf="@+id/btnBack"
             app:layout_constraintTop_toTopOf="@+id/btnBack"
             app:layout_constraintBottom_toBottomOf="@+id/btnBack"
@@ -48,14 +51,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/sendBarLayer"
-        app:layout_constraintTop_toBottomOf="@+id/titleLayer">
+        app:layout_constraintTop_toBottomOf="@+id/titleLayer"
+        tools:layout_editor_absoluteX="19dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMessage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#22000000"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

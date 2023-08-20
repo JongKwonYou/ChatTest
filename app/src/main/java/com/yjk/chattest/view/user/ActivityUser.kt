@@ -1,15 +1,12 @@
-package com.yjk.chattest.view
+package com.yjk.chattest.view.user
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.sendbird.android.SendbirdChat
-import com.sendbird.android.channel.BaseChannel
 import com.sendbird.android.channel.GroupChannel
 import com.sendbird.android.channel.MessageTypeFilter
 import com.sendbird.android.collection.GroupChannelContext
@@ -19,7 +16,6 @@ import com.sendbird.android.collection.MessageContext
 import com.sendbird.android.exception.SendbirdException
 import com.sendbird.android.handler.MessageCollectionHandler
 import com.sendbird.android.handler.MessageCollectionInitHandler
-import com.sendbird.android.handler.OpenChannelHandler
 import com.sendbird.android.message.*
 import com.sendbird.android.params.*
 import com.sendbird.android.params.common.MessagePayloadFilter
@@ -27,9 +23,7 @@ import com.sendbird.android.user.User
 import com.yjk.chattest.data.*
 import com.yjk.chattest.data.chat.ChatData
 import com.yjk.chattest.databinding.ActivityChatListBinding
-import com.yjk.chattest.databinding.ActivityMainBinding
-import com.yjk.chattest.view.fragment.chat.AdapterChatMessage
-import kotlinx.coroutines.Delay
+import com.yjk.chattest.view.user.adapter.AdapterChatMessage
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -106,6 +100,7 @@ class ActivityUser : AppCompatActivity() {
                     // Proceed in online mode.
                     Log.d("#####","채널 connect 완료!")
                     this.user = user
+                    setNickname()
                     findChannel()
                 }
             } else {
@@ -173,6 +168,13 @@ class ActivityUser : AppCompatActivity() {
         if(channel == null){
             Log.d("######","channel is null..")
             return
+        }
+
+        // title setting
+        for(member in channel!!.members){
+            if(member.userId != userType.id){
+                mBinding.tvTitle.text = member.nickname
+            }
         }
 
         val params = MessageListParams().apply {
@@ -268,6 +270,18 @@ class ActivityUser : AppCompatActivity() {
             }
 
             override fun onHugeGapDetected() {
+            }
+        }
+    }
+
+    private fun setNickname(){
+        val params = UserUpdateParams().apply {
+            nickname = userType.name
+        }
+
+        SendbirdChat.updateCurrentUserInfo(params) { e ->
+            if(e != null){
+                Toast.makeText(this@ActivityUser, "유저정보 업데이트 실패..", Toast.LENGTH_SHORT).show()
             }
         }
     }

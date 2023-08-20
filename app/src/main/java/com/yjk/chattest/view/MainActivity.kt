@@ -3,12 +3,12 @@ package com.yjk.chattest.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
-import com.sendbird.android.SendbirdChat
 import com.yjk.chattest.data.*
 import com.yjk.chattest.databinding.ActivityMainBinding
+import com.yjk.chattest.view.pharmacy.ActivityPharmacy
+import com.yjk.chattest.view.user.ActivityUser
 
 class MainActivity : AppCompatActivity() {
 
